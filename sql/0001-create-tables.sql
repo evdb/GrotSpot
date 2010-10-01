@@ -44,5 +44,6 @@ create table ratings (
     id          serial          primary key,
     location_id int8            not null references locations(id),
     session_id  char(72)        not null,
-    email_id    int8            references emails(id)
+    email_id    int8            references emails(id),
+    score       int             not null
 );

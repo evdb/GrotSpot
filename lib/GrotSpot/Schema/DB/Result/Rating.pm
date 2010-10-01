@@ -12,6 +12,7 @@ __PACKAGE__->add_columns(
     location_id => {},
     session_id  => {},
     email_id    => {},
+    score       => {},
 );
 
 __PACKAGE__->set_primary_key("id");

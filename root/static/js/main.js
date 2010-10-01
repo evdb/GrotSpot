@@ -1,59 +1,36 @@
-function initialize_page ( lat, lng ) {
+var GrotSpot = {
 
-    var point = new google.maps.LatLng( lat, lng );
+    panorama_point: null,
 
-    // query the streetview service to find the nearest actual point
-    var sv = new google.maps.StreetViewService();
-    sv.getPanoramaByLocation( point, 10000, set_panorama );
+    initialize_page: function ( lat, lng ) {
+        var point = new google.maps.LatLng( lat, lng );
 
-}
+        // query the streetview service to find the nearest actual point
+        var sv = new google.maps.StreetViewService();
+        var me = this;
 
-function set_panorama (data, status) {
-
-    if (status == google.maps.StreetViewStatus.OK) {
-
-        var point = data.location.latLng;
-
-        // streetViewControl: false,
-        // navigationControl: false,
-        // mapTypeControl:    false,
-        // scaleControl:      false
-
-
-        var street_map = new google.maps.Map(
-            document.getElementById("street_map"),
-            {
-              center:           point,
-              zoom:             14,
-              mapTypeId:        google.maps.MapTypeId.ROADMAP,
-              disableDefaultUI: true
-            }
+        sv.getPanoramaByLocation(
+            point,
+            10000,
+            function( data, status ) {
+                if (status == google.maps.StreetViewStatus.OK) {                    
+                    me.panorama_point = data.location.latLng;
+                    me.init_panorama();
+                    me.activate_rating_buttons();
+                    me.init_maps();
+                } else {
+                    alert( "Something went wrong - please reload the page.");
+                }
+             }
         );
 
-        var overview_map = new google.maps.Map(
-            document.getElementById("overview_map"),
-            {
-              center:           point,
-              zoom:             10,
-              mapTypeId:        google.maps.MapTypeId.ROADMAP,
-              disableDefaultUI: true
-            }
-        );
+    },    
 
-        var street_map_marker = new google.maps.Marker({
-            position: point, 
-            map: street_map
-        });
-        
-        var overview_map_marker = new google.maps.Marker({
-            position: point, 
-            map: overview_map
-        });
-
+    init_panorama: function () {
         var panorama = new  google.maps.StreetViewPanorama(
             document.getElementById("street_view"),
             {
-                position: point,
+                position: this.panorama_point,
                 pov: {
                     heading: 0,
                     pitch:   0,
@@ -79,19 +56,102 @@ function set_panorama (data, status) {
         //     },
         //     50
         // );
-        // 
-        // google.maps.event.addListener(
-        //     panorama,
-        //     'pov_changed',
-        //     function() {
-        // 
-        //         var new_heading = panorama.getPov().heading;
-        // 
-        //         if ( abs( last_heading - new_heading ) > heading_increment ) {
-        //             clearInterval(interval_id);
-        //         }
-        // 
-        //     }
-        // );
+
+    },
+
+    activate_rating_buttons: function () {
+
+        var me  = this;
+        var lat = this.panorama_point.lat();
+        var lng = this.panorama_point.lng();
+
+        $('#rating_buttons button').each(
+            function() {
+                var button = $(this);
+                var score = button.text();
+                
+                button.click(
+                    function () {
+
+                        $('#rating_comment').html( "Saving your rating..." );
+                        me.disable_rating_buttons();
+
+                        $.ajax({
+                          type: 'POST',
+                          url: '/ajax/store_rating',
+                          data: {
+                              score: score,
+                              lat: lat,
+                              lng: lng
+                          },
+                          success: function ( data ) {
+                              me.rating_stored( data );
+                          },
+                          dataType: 'json'
+                        });
+
+                    }
+                );
+                
+            }
+        );
+    },
+
+    disable_rating_buttons: function () {
+        $('#rating_buttons button').attr({ disabled: 'disabled' });
+    },
+    
+    rating_stored: function ( data ) {
+        $('#rating_comment').html( "Your rating has been stored" );
+
+        var button
+            = $("<button></button>")
+            .css({ width: 'auto' })
+            .html("Rate another street!")
+            .click( function () { document.location = document.location });
+
+        $('#rating_buttons').html( button );
+    },
+
+    init_maps: function () {
+    
+        var point = this.panorama_point;
+
+        var street_map = new google.maps.Map(
+            document.getElementById("street_map"),
+            {
+              center:           point,
+              zoom:             14,
+              mapTypeId:        google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI: true
+            }
+        );
+
+        var overview_map = new google.maps.Map(
+            document.getElementById("overview_map"),
+            {
+              center:           point,
+              zoom:             10,
+              mapTypeId:        google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI: true
+            }
+        );
+
+        var street_map_marker = new google.maps.Marker({
+            position: point, 
+            map: street_map
+        });
+
+        var overview_map_marker = new google.maps.Marker({
+            position: point, 
+            map: overview_map
+        });
     }
-}
+    
+};
+
+
+
+
+
+
