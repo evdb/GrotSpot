@@ -1,5 +1,71 @@
+/* smash it all down so that we get consistent */
+@import url("reset.css");
+
+@import url("960-12.less");
+
+@gutter: 20px;
+
+.inner {
+    height: 100%;
+    background-color: #ddd;
+}
+
 body {
-    width: 960px;
+    .container;
+    font-family: Georgia;
+}
+
+#header {
+    .grid_12;
+    height: 120px;    
+}
+
+#rating_wrapper {
+    .grid_12;
+    background-color: #ccf; 
+    margin-bottom: @gutter;
+}
+
+#street_view {
+    margin: @gutter/2;
+    height: 240px;
+    background-image: url('/static/panorama.jpg');
+}
+
+#rating_box {
+    .grid_10;
+    .prefix_1;
+    text-align: center;
+    margin-bottom: @gutter;
+     
+}
+
+#rating_buttons {
+    font-size: 160%;
+
+    button {
+        padding: 0.2em;
+        width: 1.5em;        
+        font: inherit;
+        cursor: pointer;
+    }
+}
+
+.small_chunk {
+    .grid_4;
+    height: 240px;
+}
+
+#overview_map {
+    .small_chunk;
+}
+
+#street_map {
+    .small_chunk;
+}
+
+#info_pane {
+    .small_chunk;
 }
 
 #footer {

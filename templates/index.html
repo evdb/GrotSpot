@@ -1,6 +1,44 @@
 [% INCLUDE 'header.html' %]
 
-<h1>GrotSpot</h1>
+<div id="rating_wrapper">
+
+    <div id="street_view"></div>
+
+    <div class="clear"></div> 
+
+    <div id="rating_box">
+        <p>Rate the panorama above...</p>
+        <div id="rating_buttons">
+            Grotty
+            [% FOREACH n IN [ 1 .. 10 ] %]
+                <button>[% n %]</button>
+            [% END %]
+            Nice
+        </div>    
+    </div>
+</div>
+
+<div class="clear"></div> 
+
+<div id="overview_map">
+    <div class="inner">
+        overview map loading...
+    </div>
+</div>
+
+<div id="street_map">
+    <div class="inner">
+        street map loading...
+    </div>
+</div>
+
+<div id="info_pane">
+    <div class="inner">
+        info_pane loading...
+    </div>
+</div>
+
+<div class="clear"></div> 
 
 [% INCLUDE 'footer.html' %]
 
