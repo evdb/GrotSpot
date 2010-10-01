@@ -1,16 +1,10 @@
 PRE LAUNCH:
 
-    capture rating
-
-    save ratings
-
     reveal maps and location info
 
     capture email address and store
 
 LATER:
-
-    auto pan the street view
 
     smarts so that people can't choose their own locations to rate
     

@@ -1,6 +1,8 @@
 var GrotSpot = {
 
-    panorama_point: null,
+    panorama_point   : null,
+    panorama         : null,
+    panorama_may_pan : null,
 
     initialize_page: function ( lat, lng ) {
         var point = new google.maps.LatLng( lat, lng );
@@ -27,7 +29,7 @@ var GrotSpot = {
     },    
 
     init_panorama: function () {
-        var panorama = new  google.maps.StreetViewPanorama(
+        this.panorama = new  google.maps.StreetViewPanorama(
             document.getElementById("street_view"),
             {
                 position: this.panorama_point,
@@ -41,22 +43,43 @@ var GrotSpot = {
                 linksControl:      false
             }
         );
+        
+        var me = this;
+        $('#street_view').mousedown( function () {
+            me.stop_panorama_panning();
+        });
 
-        // var last_heading = panorama.getPov().heading;
-        // var heading_increment = 0.5;
-        // 
-        // var interval_id = setInterval(
-        //     function () {
-        //         last_heading = last_heading + heading_increment;
-        //         panorama.setPov({
-        //             heading: last_heading,
-        //             pitch:   0,
-        //             zoom:    0
-        //         });
-        //     },
-        //     50
-        // );
+        this.start_panorama_panning();
+    },
+    
+    start_panorama_panning: function () {
+        var panorama = this.panorama;
+        
+        this.panorama_may_pan = 1;
+        var me = this;
+        
+        var initial_heading   = panorama.getPov().heading;
+        var current_heading   = initial_heading;
+        var heading_increment = 0.25;
+        
+        var pan_scene = function () {
+            current_heading = current_heading + heading_increment;
+            panorama.setPov({
+                heading: current_heading,
+                pitch:   0,
+                zoom:    0
+            });            
 
+            if ( me.panorama_may_pan && current_heading - 360 < initial_heading ) {
+                setTimeout( pan_scene, 50 );
+            }
+        }
+
+        setTimeout( pan_scene, 50 );
+    },
+
+    stop_panorama_panning : function () {
+        this.panorama_may_pan = 0;
     },
 
     activate_rating_buttons: function () {
