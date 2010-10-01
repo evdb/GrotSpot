@@ -1,4 +1,4 @@
-package GrotSpot::Schema::DB::ResultSet::Location;
+package GrotSpot::Schema::DB::ResultSet::Area;
 use base 'DBIx::Class::ResultSet';
 
 use strict;

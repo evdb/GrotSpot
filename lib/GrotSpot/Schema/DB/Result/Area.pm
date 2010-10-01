@@ -1,4 +1,4 @@
-package GrotSpot::Schema::DB::Result::Location;
+package GrotSpot::Schema::DB::Result::Area;
 use base 'DBIx::Class::Core';
 
 use strict;
@@ -6,8 +6,7 @@ use warnings;
 
 use DateTime;
 
-__PACKAGE__->load_components("InflateColumn::DateTime");
-__PACKAGE__->table("locations");
+__PACKAGE__->table("areas");
 __PACKAGE__->add_columns(
     id        => {},
     code      => {},
@@ -19,8 +18,8 @@ __PACKAGE__->add_columns(
 );
 
 __PACKAGE__->set_primary_key("id");
-__PACKAGE__->add_unique_constraint( "locations_code_key", ["code"] );
-__PACKAGE__->add_unique_constraint( "locations_name_key", ["name"] );
+__PACKAGE__->add_unique_constraint( "areas_code_key", ["code"] );
+__PACKAGE__->add_unique_constraint( "areas_name_key", ["name"] );
 
 # sub new {
 #     my ( $class, $attrs ) = @_;

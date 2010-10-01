@@ -10,16 +10,16 @@ sub index : Path : Args(0) {
 }
 
 sub in : Path : Args(1) {
-    my ( $self, $c, $location_code ) = @_;
+    my ( $self, $c, $area_code ) = @_;
 
-    # check that the location code exists in the db
-    my $location = $c->model('DB::Location')->find( { code => $location_code } )
+    # check that the area code exists in the db
+    my $area = $c->model('DB::Area')->find( { code => $area_code } )
       || die;
 
-    $c->stash->{location} = $location;
+    $c->stash->{area} = $area;
 
     # get the point that we should rate
-    my ( $lat, $lon ) = $location->get_random_lat_lon();
+    my ( $lat, $lon ) = $area->get_random_lat_lon();
     $c->stash->{point} = { lat => $lat, lon => $lon };
 
 }

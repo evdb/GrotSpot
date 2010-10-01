@@ -5,7 +5,7 @@ create table sessions (
     created      timestamp    not null
 );
 
-create table locations (
+create table areas (
     id          serial          primary key,
     
     code        varchar(40)     not null unique,
@@ -17,7 +17,7 @@ create table locations (
     east_lon    float           not null
 );
 
-insert into locations
+insert into areas
     (code, name, north_lat, west_lon, south_lat, east_lon)
     values
     ( 'london', 'London, UK', 51.713416, -0.539703, 51.273944,  0.299377 );
