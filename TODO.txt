@@ -1,13 +1,19 @@
-redirect homepage to /in/london
+PRE LAUNCH:
 
-pick a random lat/lng in the city
+    capture rating
 
-find the nearest street view coordinate to the location
+    save ratings
 
-display the street view
+    reveal maps and location info
 
-auto pan the street view
+    capture email address and store
 
-save ratings
+LATER:
 
+    auto pan the street view
 
+    smarts so that people can't choose their own locations to rate
+    
+    browse ratings on a map
+    
+    add more cities

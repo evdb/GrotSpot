@@ -14,25 +14,41 @@ function set_panorama (data, status) {
 
         var point = data.location.latLng;
 
-        var steet_map = new google.maps.Map(
+        // streetViewControl: false,
+        // navigationControl: false,
+        // mapTypeControl:    false,
+        // scaleControl:      false
+
+
+        var street_map = new google.maps.Map(
             document.getElementById("street_map"),
             {
-              center:    point,
-              zoom:      14,
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-              streetViewControl: false
+              center:           point,
+              zoom:             14,
+              mapTypeId:        google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI: true
             }
         );
 
         var overview_map = new google.maps.Map(
             document.getElementById("overview_map"),
             {
-              center:    point,
-              zoom:      10,
-              mapTypeId: google.maps.MapTypeId.ROADMAP,
-              streetViewControl: false
+              center:           point,
+              zoom:             10,
+              mapTypeId:        google.maps.MapTypeId.ROADMAP,
+              disableDefaultUI: true
             }
         );
+
+        var street_map_marker = new google.maps.Marker({
+            position: point, 
+            map: street_map
+        });
+        
+        var overview_map_marker = new google.maps.Marker({
+            position: point, 
+            map: overview_map
+        });
 
         var panorama = new  google.maps.StreetViewPanorama(
             document.getElementById("street_view"),
