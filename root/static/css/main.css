@@ -225,7 +225,6 @@ body {
 #street_view {
   margin: 10px;
   height: 240px;
-  background-image: url('/static/panorama.jpg');
 }
 #rating_box {
   display: inline;
@@ -241,8 +240,9 @@ body {
 #rating_buttons { font-size: 160%; }
 #rating_buttons button {
   padding: 0.2em;
-  width: 1.5em;
+  width: 2em;
   font: inherit;
+  font-family: Arial;
   cursor: pointer;
 }
 .small_chunk, #overview_map, #street_map, #info_pane {
