@@ -19,8 +19,8 @@ sub in : Path : Args(1) {
     $c->stash->{area} = $area;
 
     # get the point that we should rate
-    my ( $lat, $lon ) = $area->get_random_lat_lon();
-    $c->stash->{point} = { lat => $lat, lon => $lon };
+    my ( $lat, $lng ) = $area->get_random_lat_lng();
+    $c->stash->{point} = { lat => $lat, lng => $lng };
 
 }
 

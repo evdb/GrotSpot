@@ -12,9 +12,9 @@ __PACKAGE__->add_columns(
     code      => {},
     name      => {},
     north_lat => {},
-    west_lon  => {},
+    west_lng  => {},
     south_lat => {},
-    east_lon  => {},
+    east_lng  => {},
 );
 
 __PACKAGE__->set_primary_key("id");
@@ -26,17 +26,17 @@ __PACKAGE__->add_unique_constraint( "areas_name_key", ["name"] );
 #     return $class->next::method($attrs);
 # }
 
-sub get_random_lat_lon {
+sub get_random_lat_lng {
     my $self = shift;
 
     my $lat_mag = $self->north_lat - $self->south_lat;
     my $lat     = $self->south_lat + rand() * $lat_mag;
 
     # FIXME - breaks across timeline
-    my $lon_mag = $self->east_lon - $self->west_lon;
-    my $lon     = $self->west_lon + rand() * $lon_mag;
+    my $lng_mag = $self->east_lng - $self->west_lng;
+    my $lng     = $self->west_lng + rand() * $lng_mag;
 
-    return ( $lat, $lon );
+    return ( $lat, $lng );
 }
 
 1;
