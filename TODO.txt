@@ -1,1 +1,13 @@
+redirect homepage to /in/london
+
+pick a random lat/lng in the city
+
+find the nearest street view coordinate to the location
+
+display the street view
+
+auto pan the street view
+
+save ratings
+
 
