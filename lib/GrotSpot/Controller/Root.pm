@@ -8,6 +8,7 @@ __PACKAGE__->config->{namespace} = '';
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
+    $c->res->redirect( $c->uri_for('/in/london') );
 }
 
 sub default : Path {
