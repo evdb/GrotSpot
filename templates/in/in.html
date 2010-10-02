@@ -44,21 +44,33 @@
 <div class="lower">
     <div class="inner">
 
-        You have rated <b class="ratings_stored">[% c.session.ratings_stored ||
+        You've rated <b class="ratings_stored">[% c.session.ratings_stored ||
         0 %]</b> streets and to say thanks we'll give you a <b
         class="future_discount">[% c.session.future_discount || 0 %]%</b>
         discount on future products.
 
-        <br>
+
+        <div class="email_box">
+
+        [% IF c.session.email %]
+
+        <br>You're logged in as <tt>[% c.session.email %]</tt>.
+
+        [% ELSE %]
         
-         <form>
-             <input type="text" name="email" />
+        <form id="email_form" action="/ajax/store_email" method="POST">
+             <input type="text" name="email" class="autowipe" alt="email address" />
              <input type="submit" value="Save" />
         </form>
 
         <div class="smallprint">We will not give your email to anyone else.
         We'll send you emails when there is something to report. No spam -
         promise!</div>
+
+        [% END %]
+
+
+        </div>
 
     </div>
 </div>

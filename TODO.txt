@@ -1,9 +1,5 @@
 PRE LAUNCH:
 
-    Ajax handler to accept email address
-
-    capture email address and store
-
     seeing duplicates - is it our random code?
         most likely Google - do a small search and expand if no match
 
@@ -30,3 +26,5 @@ LATER:
     add timestamps to rows in db
     
     add page explaining what future discounts are
+    
+    allow user to log out
