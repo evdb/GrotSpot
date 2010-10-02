@@ -140,7 +140,8 @@ var GrotSpot = {
 
         // display data about the street
         $('#info_pane address').text( this.panorama_description );
-        $('#info_pane .rating').text( data.average_score );
+        $('#info_pane .rating').text( data.location.average_score );
+        $('#info_pane .votes').text( data.location.vote_count + ' votes' );
 
     },
 

@@ -83,17 +83,15 @@ body {
         background-color: #ddd;
         height: (240px - @gutter) / 2;
         margin-bottom: @gutter;
-        
-        div {
-            padding: @gutter / 4;
-        }
     }
 
     .lower {
         background-color: #ddd;
         height: (240px - @gutter) / 2;
+    }
 
-        div {
+    .upper, .lower {
+        .inner {
             padding: @gutter / 4;
         }
     }

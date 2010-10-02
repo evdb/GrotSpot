@@ -280,12 +280,12 @@ body {
   height: 110px;
   margin-bottom: 20px;
 }
-#info_pane .upper div { padding: 5px; }
 #info_pane .lower {
   background-color: #dddddd;
   height: 110px;
 }
-#info_pane .lower div { padding: 5px; }
+#info_pane .upper .inner { padding: 5px; }
+#info_pane .lower .inner { padding: 5px; }
 #info_pane address {
   font-style: normal;
   font-size: 150%;

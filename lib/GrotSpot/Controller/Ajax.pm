@@ -24,8 +24,11 @@ sub store_rating : Local {
       || die "Could not save rating";
 
     $c->stash->{json_data} = {
-        score         => $score,                    #
-        average_score => $location->average_score
+        score    => $score,             #
+        location => {
+            average_score => $location->average_score,
+            vote_count    => $location->ratings->count
+        }
     };
 }
 
