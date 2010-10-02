@@ -26,6 +26,7 @@ __PACKAGE__->config(
         max_lifetime => 3600 * 24 * 2,      # 2 days
         min_lifetime => 3600 * 24 * 1,      # 1 day
     },
+    default_view => 'Web',
 );
 
 __PACKAGE__->setup();

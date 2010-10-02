@@ -23,7 +23,10 @@ sub store_rating : Local {
         { score => $score, session_id => $c->sessionid } )
       || die "Could not save rating";
 
-    $c->stash->{json_data} = { score => $score };
+    $c->stash->{json_data} = {
+        score         => $score,                    #
+        average_score => $location->average_score
+    };
 }
 
 sub end : Private {

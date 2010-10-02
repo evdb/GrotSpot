@@ -194,14 +194,13 @@ table {
   width: 0;
   height: 0;
 }
-.inner {
-  height: 100%;
-  background-color: #dddddd;
-}
 body {
+  font-family: Arial;
+  background-color: #ffffff;
+}
+#outer_wrapper {
   margin: 0 auto;
   width: 960px;
-  font-family: Georgia;
 }
 #header {
   display: inline;
@@ -225,6 +224,7 @@ body {
 #street_view {
   margin: 10px;
   height: 240px;
+  background: #e5e3df;
 }
 #rating_box {
   display: inline;
@@ -245,7 +245,7 @@ body {
   font-family: Arial;
   cursor: pointer;
 }
-.small_chunk, #overview_map, #street_map, #info_pane {
+.small_chunk {
   display: inline;
   float: left;
   position: relative;
@@ -254,10 +254,60 @@ body {
   width: 300px;
   height: 240px;
 }
+.map_backdrop { background: url('/static/icons/map-blank.jpg') no-repeat scroll top left #dddddd; }
+#overview_map, #street_map {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  height: 240px;
+  background: url('/static/icons/map-blank.jpg') no-repeat scroll top left #dddddd;
+}
+#info_pane {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  height: 240px;
+  text-align: center;
+}
+#info_pane .upper {
+  background-color: #dddddd;
+  height: 110px;
+  margin-bottom: 20px;
+}
+#info_pane .upper div { padding: 5px; }
+#info_pane .lower {
+  background-color: #dddddd;
+  height: 110px;
+}
+#info_pane .lower div { padding: 5px; }
+#info_pane address {
+  font-style: normal;
+  font-size: 150%;
+}
+#info_pane .rating {
+  font-size: 200%;
+  font-weight: bold;
+}
+#info_pane .smallprint {
+  font-size: 50%;
+  color: #777777;
+}
 #footer {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
   text-align: right;
   border-top: 1px solid #dddddd;
-  margin-top: 2em;
+  margin-top: 20px;
 }
 #footer li {
   display: inline;

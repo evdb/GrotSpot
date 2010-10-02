@@ -4,10 +4,20 @@ PRE LAUNCH:
 
     capture email address and store
 
+    seeing duplicates - is it our random code?
+
 LATER:
+
+    make the next box big enough to cover the original rating boxes
 
     smarts so that people can't choose their own locations to rate
     
     browse ratings on a map
     
     add more cities
+    
+    big map to select city to do ratings in
+
+    expand the panorama and float the rating buttons over it?
+    
+    add timestamps to rows in db

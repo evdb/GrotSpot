@@ -4,15 +4,15 @@
 @import url("960-12.less");
 
 @gutter: 20px;
-
-.inner {
-    height: 100%;
-    background-color: #ddd;
-}
+@google_map_grey: #e5e3df;
 
 body {
+    font-family: Arial;
+    background-color: #fff;
+}
+
+#outer_wrapper {
     .container;
-    font-family: Georgia;
 }
 
 #header {
@@ -32,6 +32,7 @@ body {
 #street_view {
     margin: @gutter/2;
     height: 240px;
+    background: @google_map_grey;
 }
 
 #rating_box {
@@ -59,22 +60,66 @@ body {
     height: 240px;
 }
 
+.map_backdrop {
+    background: url('/static/icons/map-blank.jpg') no-repeat scroll top left #ddd;
+}
+
 #overview_map {
     .small_chunk;
+    .map_backdrop;
 }
 
 #street_map {
     .small_chunk;
+    .map_backdrop;
 }
 
 #info_pane {
     .small_chunk;
+
+    text-align: center;
+    
+    .upper {
+        background-color: #ddd;
+        height: (240px - @gutter) / 2;
+        margin-bottom: @gutter;
+        
+        div {
+            padding: @gutter / 4;
+        }
+    }
+
+    .lower {
+        background-color: #ddd;
+        height: (240px - @gutter) / 2;
+
+        div {
+            padding: @gutter / 4;
+        }
+    }
+
+    address {
+        font-style: normal;
+        font-size: 150%;
+    }
+
+    .rating {
+        font-size: 200%;
+        font-weight: bold;
+    }
+
+    .smallprint {
+        font-size: 50%;
+        color: #777;
+    }
+
 }
 
 #footer {
+    .grid_12;
     text-align: right;
     border-top: 1px solid #ddd;
-    margin-top: 2em;
+    margin-top: @gutter;
 
     li {
         display: inline;

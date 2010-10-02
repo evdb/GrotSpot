@@ -21,5 +21,16 @@ __PACKAGE__->has_many(
     { 'foreign.location_id' => 'self.id' },
 );
 
+sub average_score_raw {
+    my $self = shift;
+    my $avg = $self->ratings->get_column('score')->func('avg') || 0;
+}
+
+sub average_score {
+    my $self = shift;
+    my $avg  = $self->average_score_raw;
+    return sprintf "%.1f", $avg;
+}
+
 1;
 

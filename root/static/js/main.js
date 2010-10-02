@@ -16,10 +16,10 @@ var GrotSpot = {
             10000,
             function( data, status ) {
                 if (status == google.maps.StreetViewStatus.OK) {                    
-                    me.panorama_point = data.location.latLng;
+                    me.panorama_point       = data.location.latLng;
+                    me.panorama_description = data.location.description;
                     me.init_panorama();
                     me.activate_rating_buttons();
-                    me.init_maps();
                 } else {
                     alert( "Something went wrong - please reload the page.");
                 }
@@ -60,7 +60,7 @@ var GrotSpot = {
         
         var initial_heading   = panorama.getPov().heading;
         var current_heading   = initial_heading;
-        var heading_increment = 0.25;
+        var heading_increment = 0.5;
         
         var pan_scene = function () {
             current_heading = current_heading + heading_increment;
@@ -127,13 +127,21 @@ var GrotSpot = {
     rating_stored: function ( data ) {
         $('#rating_comment').html( "Your rating has been stored" );
 
+        // create the maps of the location
+        this.init_maps();
+
+        // change the buttons to the 'next street' button
         var button
             = $("<button></button>")
             .css({ width: 'auto' })
             .html("Rate another street!")
             .click( function () { document.location = document.location });
-
         $('#rating_buttons').html( button );
+
+        // display data about the street
+        $('#info_pane address').text( this.panorama_description );
+        $('#info_pane .rating').text( data.average_score );
+
     },
 
     init_maps: function () {
