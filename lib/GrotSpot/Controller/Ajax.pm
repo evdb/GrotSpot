@@ -17,17 +17,31 @@ sub store_rating : Local {
       $c->model('DB::Location')->find_or_create( { lat => $lat, lng => $lng } )
       || die "Could not create location";
 
-    # save the rating
+    # Check that the session has been set up
     $c->session->{ratings_stored}++;    # fix the session
+    $c->session->{future_discount} =
+      $c->future_discount( $c->session->{ratings_stored} );
+    my $session_id = $c->sessionid;
+
+    # save the rating
     my $rating = $location->add_to_ratings(
-        { score => $score, session_id => $c->sessionid } )
-      || die "Could not save rating";
+        {
+            score      => $score,
+            session_id => $session_id
+        }
+    ) || die "Could not save rating";
 
     $c->stash->{json_data} = {
-        score    => $score,             #
+        score    => $score,    #
         location => {
             average_score => $location->average_score,
             vote_count    => $location->ratings->count
+        },
+        user => {
+            ratings_stored  => $c->session->{ratings_stored},
+            future_discount => $c->session->{future_discount},
+            email           => $c->session->{email} || '',
+            session_id      => $session_id,
         }
     };
 }

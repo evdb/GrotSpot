@@ -31,4 +31,27 @@ __PACKAGE__->config(
 
 __PACKAGE__->setup();
 
+# FIXME - should be in a better place
+sub future_discount {
+    my $c = shift;
+    my $ratings = shift || 0;
+
+    my $discount = 0;
+
+    my %discounts = (
+        1    => 5,
+        5    => 10,
+        20   => 20,
+        100  => 30,
+        500  => 40,
+        1000 => 50,
+    );
+
+    foreach my $ratings_needed ( sort { $a <=> $b } keys %discounts ) {
+        $discount = $discounts{$ratings_needed} if $ratings >= $ratings_needed;
+    }
+
+    return $discount;
+}
+
 1;

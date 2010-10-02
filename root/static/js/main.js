@@ -139,10 +139,14 @@ var GrotSpot = {
         $('#rating_buttons').html( button );
 
         // display data about the street
-        $('#info_pane address').text( this.panorama_description );
-        $('#info_pane .rating').text( data.location.average_score );
-        $('#info_pane .votes').text( data.location.vote_count + ' votes' );
+        var upper = $('#info_pane .upper');
+        upper.find('address').text( this.panorama_description );
+        upper.find('.rating').text( data.location.average_score );
+        upper.find('.votes').text( data.location.vote_count + ' votes' );
 
+        var lower = $('#info_pane .lower');
+        lower.find('.ratings_stored').text( data.user.ratings_stored );
+        lower.find('.future_discount').text( data.user.future_discount + '%' );
     },
 
     init_maps: function () {

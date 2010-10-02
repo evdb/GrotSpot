@@ -43,14 +43,17 @@
 
 <div class="lower">
     <div class="inner">
-        You have rated <b>XXX</b> streets and to say thanks we'll give you a
-        <b>XXX%</b> discount on future products.
-    
+
+        You have rated <b class="ratings_stored">[% c.session.ratings_stored ||
+        0 %]</b> streets and to say thanks we'll give you a <b
+        class="future_discount">[% c.session.future_discount || 0 %]%</b>
+        discount on future products.
+
         <br>
-    
-        <form>
-            <input type="text" name="email" />
-            <input type="submit" value="Save" />
+        
+         <form>
+             <input type="text" name="email" />
+             <input type="submit" value="Save" />
         </form>
 
         <div class="smallprint">We will not give your email to anyone else.
