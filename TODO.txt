@@ -10,8 +10,6 @@ big map to select city to do ratings in
 
 expand the panorama and float the rating buttons over it?
 
-add timestamps to rows in db
-
 add page explaining what future discounts are
 
 allow user to log out

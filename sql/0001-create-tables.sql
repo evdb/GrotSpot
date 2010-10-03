@@ -7,6 +7,7 @@ create table sessions (
 
 create table areas (
     id          serial          primary key,
+    created     timestamp       not null,
     
     code        varchar(40)     not null unique,
     name        text            not null unique,
@@ -18,18 +19,19 @@ create table areas (
 );
 
 insert into areas
-    (code, name, north_lat, west_lng, south_lat, east_lng)
+    (code, name, north_lat, west_lng, south_lat, east_lng, created)
     values
-    ( 'london', 'London, UK', 51.553167, -0.232086, 51.458285, -0.00206 );
+    ( 'london', 'London, UK', 51.553167, -0.232086, 51.458285, -0.00206, now() );
 
 insert into areas
-    (code, name, north_lat, west_lng, south_lat, east_lng)
+    (code, name, north_lat, west_lng, south_lat, east_lng, created)
     values
-    ( 'greater_london', 'Greater London, UK', 51.713416, -0.539703, 51.273944,  0.299377 );
+    ( 'greater_london', 'Greater London, UK', 51.713416, -0.539703, 51.273944,  0.299377, now() );
 
 
 create table locations (
     id          serial          primary key,
+    created     timestamp       not null,
     lat         float           not null,
     lng         float           not null
 );
@@ -39,6 +41,7 @@ create unique index locations_lat_lng_key on locations ( lat, lng );
 
 create table emails (
     id          serial          primary key,
+    created     timestamp       not null,
     email       varchar(200)    not null unique
 );
 
@@ -46,8 +49,10 @@ create table emails (
 
 create table ratings (
     id          serial          primary key,
+    created     timestamp       not null,
     location_id int8            not null references locations(id),
     session_id  char(72)        not null,
     email_id    int8            references emails(id),
     score       int             not null
 );
+

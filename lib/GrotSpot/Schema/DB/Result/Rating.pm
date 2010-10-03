@@ -6,9 +6,11 @@ use warnings;
 
 use DateTime;
 
+__PACKAGE__->load_components("InflateColumn::DateTime");
 __PACKAGE__->table("ratings");
 __PACKAGE__->add_columns(
     id          => {},
+    created     => { data_type => 'datetime' },
     location_id => {},
     session_id  => {},
     email_id    => {},
@@ -26,6 +28,12 @@ __PACKAGE__->belongs_to(
     location => 'GrotSpot::Schema::DB::Result::Location',
     { 'foreign.id' => 'self.location_id' },
 );
+
+sub new {
+    my ( $class, $attrs ) = @_;
+    $attrs->{created} ||= DateTime->now();
+    return $class->next::method($attrs);
+}
 
 1;
 

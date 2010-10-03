@@ -6,9 +6,11 @@ use warnings;
 
 use DateTime;
 
+__PACKAGE__->load_components("InflateColumn::DateTime");
 __PACKAGE__->table("areas");
 __PACKAGE__->add_columns(
     id        => {},
+    created   => { data_type => 'datetime' },
     code      => {},
     name      => {},
     north_lat => {},
@@ -21,10 +23,11 @@ __PACKAGE__->set_primary_key("id");
 __PACKAGE__->add_unique_constraint( "areas_code_key", ["code"] );
 __PACKAGE__->add_unique_constraint( "areas_name_key", ["name"] );
 
-# sub new {
-#     my ( $class, $attrs ) = @_;
-#     return $class->next::method($attrs);
-# }
+sub new {
+    my ( $class, $attrs ) = @_;
+    $attrs->{created} ||= DateTime->now();
+    return $class->next::method($attrs);
+}
 
 sub get_random_lat_lng {
     my $self = shift;
