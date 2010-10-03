@@ -1,23 +1,17 @@
-PRE LAUNCH:
+make the next box big enough to cover the original rating boxes
 
-    feedback code - https://uservoice.com/signup?ref=getting-started
+smarts so that people can't choose their own locations to rate
 
-LATER:
+browse ratings on a map
 
-    make the next box big enough to cover the original rating boxes
+add more cities
 
-    smarts so that people can't choose their own locations to rate
-    
-    browse ratings on a map
-    
-    add more cities
-    
-    big map to select city to do ratings in
+big map to select city to do ratings in
 
-    expand the panorama and float the rating buttons over it?
-    
-    add timestamps to rows in db
-    
-    add page explaining what future discounts are
-    
-    allow user to log out
+expand the panorama and float the rating buttons over it?
+
+add timestamps to rows in db
+
+add page explaining what future discounts are
+
+allow user to log out
