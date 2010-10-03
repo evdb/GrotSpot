@@ -1,8 +1,5 @@
 PRE LAUNCH:
 
-    seeing duplicates - is it our random code?
-        most likely Google - do a small search and expand if no match
-
     google analytics code
     
     feedback code - https://uservoice.com/signup?ref=getting-started

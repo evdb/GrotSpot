@@ -2,29 +2,61 @@ var GrotSpot = {
 
     panorama_point   : null,
     panorama         : null,
-    panorama_may_pan : null,
+
+    panorama_may_pan       : null,
+    panorama_pan_increment : 0.5,
+    panorama_pan_interval  : 50,
+
+    panorama_search_radius_initial  : 50,
+    panorama_search_radius_multiple : 4,
+    panorama_search_radius_max      : 4000,
 
     initialize_page: function ( lat, lng ) {
+
         var point = new google.maps.LatLng( lat, lng );
 
         // query the streetview service to find the nearest actual point
-        var sv = new google.maps.StreetViewService();
-        var me = this;
+        var sv     = new google.maps.StreetViewService();
+        var radius = this.panorama_search_radius_initial;
+        var me     = this;
 
-        sv.getPanoramaByLocation(
-            point,
-            10000,
-            function( data, status ) {
-                if (status == google.maps.StreetViewStatus.OK) {                    
-                    me.panorama_point       = data.location.latLng;
-                    me.panorama_description = data.location.description;
-                    me.init_panorama();
-                    me.activate_rating_buttons();
-                } else {
-                    alert( "Something went wrong - please reload the page.");
-                }
-             }
-        );
+        var search_function = function () {
+            sv.getPanoramaByLocation(
+                point,
+                radius,
+                function( data, status ) {
+
+                    if (status == google.maps.StreetViewStatus.OK) {                    
+                        me.panorama_point       = data.location.latLng;
+                        me.panorama_description = data.location.description;
+                        me.init_panorama();
+                        me.activate_rating_buttons();
+
+                    }
+                    
+                    // need to increase the search radius
+                    else if (status == google.maps.StreetViewStatus.ZERO_RESULTS) {
+                        
+                        radius = radius * me.panorama_search_radius_multiple;
+                        
+                        if ( radius < me.panorama_search_radius_max ) {
+                            search_function();
+                        } else {
+                            alert('Could not find any streets for you to rate.');
+                        }
+                        
+                    } 
+                    
+                    // some error that we can't auto fix
+                    else {
+                        alert( "Something went wrong - please reload the page.");
+                    }
+                 }
+            );            
+        };
+        
+        search_function();
+
 
     },    
 
@@ -60,7 +92,7 @@ var GrotSpot = {
         
         var initial_heading   = panorama.getPov().heading;
         var current_heading   = initial_heading;
-        var heading_increment = 0.5;
+        var heading_increment = this.panorama_pan_increment;
         
         var pan_scene = function () {
             current_heading = current_heading + heading_increment;
@@ -75,7 +107,7 @@ var GrotSpot = {
             }
         }
 
-        setTimeout( pan_scene, 50 );
+        setTimeout( pan_scene, me.panorama_pan_interval );
     },
 
     stop_panorama_panning : function () {

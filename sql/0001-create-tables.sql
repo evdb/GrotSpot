@@ -20,8 +20,12 @@ create table areas (
 insert into areas
     (code, name, north_lat, west_lng, south_lat, east_lng)
     values
-    ( 'london', 'London, UK', 51.713416, -0.539703, 51.273944,  0.299377 );
+    ( 'london', 'London, UK', 51.553167, -0.232086, 51.458285, -0.00206 );
 
+insert into areas
+    (code, name, north_lat, west_lng, south_lat, east_lng)
+    values
+    ( 'greater_london', 'Greater London, UK', 51.713416, -0.539703, 51.273944,  0.299377 );
 
 
 create table locations (
