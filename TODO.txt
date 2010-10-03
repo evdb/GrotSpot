@@ -7,8 +7,6 @@ PRE LAUNCH:
     
     feedback code - https://uservoice.com/signup?ref=getting-started
 
-    logo
-
 LATER:
 
     make the next box big enough to cover the original rating boxes

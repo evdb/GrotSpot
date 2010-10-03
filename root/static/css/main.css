@@ -211,6 +211,8 @@ body {
   width: 940px;
   height: 120px;
 }
+#header .logo { float: left; }
+#header h1 { display: none; }
 #rating_wrapper {
   display: inline;
   float: left;
