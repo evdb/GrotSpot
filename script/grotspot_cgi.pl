@@ -4,6 +4,9 @@ BEGIN { $ENV{CATALYST_ENGINE} ||= 'CGI' }
 
 use strict;
 use warnings;
+
+use local::lib;
+
 use FindBin;
 use lib "$FindBin::Bin/../lib";
 use GrotSpot;
