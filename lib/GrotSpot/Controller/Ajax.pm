@@ -6,16 +6,6 @@ use parent 'Catalyst::Controller';
 
 use Email::Valid;
 
-sub auto : Private {
-    my ( $self, $c ) = @_;
-
-    use Data::Dumper;
-    local $Data::Dumper::Sortkeys = 1;
-    warn Dumper( $c->session );
-
-    1;
-}
-
 sub store_rating : Local {
     my ( $self, $c ) = @_;
 
