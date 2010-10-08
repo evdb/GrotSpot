@@ -1,0 +1,54 @@
+[% INCLUDE 'header.html', title => "Rate streets in ${area.name}" %]
+
+<div class="content">
+    
+    <h1>Adverts</h1>
+
+    <style type="text/css" media="screen">
+        table {
+            width: 100%;
+        }
+        
+        th {
+            text-align: left;
+        }
+    </style>
+
+    <table>
+
+        <thead>
+            <th>id</th>
+            <th>heading</th>
+            <th>views</th>
+            <th>clicks</th>
+            <th>CTR</th>
+        </thead>
+
+        <tbody>
+        [% FOREACH advert IN adverts.all %]
+        <tr>
+            <td>
+                <a href="[% c.uri_for( 'edit', advert.id ) %]">[% advert.id %]</a>
+            </td>
+            <td>
+                [% advert.heading %]
+            </td>
+            <td>
+                [% advert.view_count %]
+            </td>
+            <td>
+                [% advert.click_count %]
+            </td>
+            <td>
+                [% advert.ctr_percentage %]%
+            </td>
+        </tr>
+        [% END %]
+        </tbody>
+
+    </table>
+
+</div>
+
+[% INCLUDE 'footer.html' %]
+

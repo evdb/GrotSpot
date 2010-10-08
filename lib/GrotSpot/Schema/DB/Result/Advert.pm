@@ -51,5 +51,20 @@ sub record_click {
     return $self;
 }
 
+sub ctr {
+    my $self   = shift;
+    my $views  = $self->view_count;
+    my $clicks = $self->click_count;
+
+    return 0 unless $views && $clicks;
+    return 1 if $clicks > $views;
+    return $clicks / $views;
+}
+
+sub ctr_percentage {
+    my $self = shift;
+    return sprintf "%0.2f", $self->ctr * 100;
+}
+
 1;
 
