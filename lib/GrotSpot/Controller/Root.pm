@@ -8,9 +8,14 @@ __PACKAGE__->config->{namespace} = '';
 
 sub auto : Private {
     my ( $self, $c ) = @_;
+    my $grotspot = $c->stash->{grotspot} ||= {};
 
     # push the version onto the stash
-    $c->stash->{grotspot}{version} = $GrotSpot::VERSION;
+    $grotspot->{version} = $GrotSpot::VERSION;
+
+    # show analytics if on live site
+    $grotspot->{show_analytics} =
+      $c->req->uri->host eq 'www.grotspot.com' ? 1 : 0;
 
     return 1;
 }

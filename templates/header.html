@@ -9,7 +9,7 @@
         <script src="/static/js/main.js?v=[% grotspot_version %]" type="text/javascript" charset="utf-8"></script>
         <title>[% title %] :: GrotSpot.com</title>
 
-        [% IF ! c.debug %]
+        [% IF grotspot.show_analytics %]
         <script type="text/javascript">
 
           var _gaq = _gaq || [];
@@ -24,6 +24,7 @@
 
         </script>
         [% END %]
+
     </head>
 
     <body>
