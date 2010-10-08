@@ -1,4 +1,6 @@
 <div class="advert-wrapper">
+
+    [% IF advert %]
     <div class="advert-inner">
         [% advert_url = '/advert/go/' _ advert.id %]
         <a target="_new" href="[% advert_url %]"><img src="[% advert.image_url %]"></a>
@@ -7,4 +9,6 @@
 
         <div class="blurb">[% advert.blurb | html %]</div>
     </div>
+    [% END %]
+
 </div>
