@@ -32,9 +32,15 @@ sub index : Path : Args(0) {
 
 sub default : Path {
     my ( $self, $c ) = @_;
+    $c->detach('/page_not_found');
+}
+
+sub page_not_found : Private {
+    my ( $self, $c ) = @_;
     $c->response->body('Page not found');
     $c->response->status(404);
 }
+
 
 sub end : ActionClass('RenderView') {
 }

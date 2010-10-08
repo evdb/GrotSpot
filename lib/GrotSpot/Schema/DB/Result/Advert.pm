@@ -40,6 +40,15 @@ sub new {
 sub record_view {
     my $self = shift;
     $self->update( { view_count => $self->view_count + 1 } );
+    return $self;
+}
+
+sub record_click {
+    my $self = shift;
+    my $args = shift;
+    $self->add_to_clicks($args);
+    $self->update( { click_count => $self->click_count + 1 } );
+    return $self;
 }
 
 1;

@@ -13,6 +13,7 @@ __PACKAGE__->add_columns(
     created    => { data_type => 'datetime' },
     advert_id  => {},
     session_id => {},
+    referer    => {},
 );
 
 __PACKAGE__->set_primary_key("id");

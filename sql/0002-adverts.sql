@@ -19,7 +19,9 @@ create table advert_clicks (
     id          serial          primary key,
     created     timestamp       not null,
     advert_id   int8            not null references adverts(id),
-    session_id  int8            not null
+    session_id  char(72)        not null,
+    referer     text
+
 );
 
 

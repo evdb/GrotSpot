@@ -19,4 +19,31 @@ sub display : Local {
     $c->stash->{advert} = $advert;
 }
 
+sub go : Local {
+    my ( $self, $c, $advert_id ) = @_;
+
+    # sanitise the id
+    $advert_id =~ s{\D+}{}g;
+    $advert_id ||= 0;
+
+    # load the advert or 404
+    my $advert = $c->model("DB::Advert")->find($advert_id)
+      || $c->detach('/page_not_found');
+
+    # where did we come from
+    my $referer = $c->req->referer || '';
+
+    # record the click
+    $c->session->{ads_clicked}++;
+    $advert->record_click(
+        {
+            session_id => $c->sessionid,    #
+            referer    => $referer,
+        }
+    );
+
+    # redirect to the ad url
+    $c->res->redirect( $advert->url );
+}
+
 1;
