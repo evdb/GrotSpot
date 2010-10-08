@@ -18,6 +18,7 @@
 
         <thead>
             <th>id</th>
+            <th>on?</th>
             <th>heading</th>
             <th>views</th>
             <th>clicks</th>
@@ -29,6 +30,9 @@
         <tr>
             <td>
                 <a href="[% c.uri_for( 'edit', advert.id ) %]">[% advert.id %]</a>
+            </td>
+            <td>
+                [% advert.enabled ? 'yes' : '-' %]
             </td>
             <td>
                 [% advert.heading %]

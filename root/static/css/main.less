@@ -30,55 +30,53 @@ body {
 
     h1 {
         display: none;
-    }
+    }    
+}
+
+.advert-wrapper {
+    /* google ads 468x60, 468x15*/
+    width:  468px;
+    height: 86px;
+    float: right;
     
-    .advert-wrapper {
-        /* google ads 468x60, 468x15*/
-        height: 86px;
-        width:  468px;
-        float: right;
-        
-        .advert-inner:hover {
-            border-color: @google_map_grey - #333;
-            opacity: 1;
-        }
-
-        .advert-inner {
-            padding: 1px;
-            border: 2px solid @google_map_grey;
-            height: 80px;
-
-            opacity: 0.4;
-            overflow: hidden;
-            
-            a, a:visited {
-                color: inherit;
-                
-            }
-            
-            img {
-                height: 80px;
-                width:  80px;
-                margin: 0 5px;
-                float:  left;
-            }
-
-            .headline {
-                font-size: 120%;
-                white-space: nowrap;
-                margin-bottom: 0.2em;
-            }
-
-            .blurb {
-                font-size: 80%;
-                height: 4em;
-                overflow: hidden;       
-            }
-            
-        }
-
+    .advert-inner:hover {
+        border-color: @google_map_grey - #333;
+        opacity: 1;
     }
 
+    .advert-inner {
+        padding: 1px;
+        border: 2px solid @google_map_grey;
+        height: 80px;
+
+        opacity: 0.4;
+        overflow: hidden;
+        
+        a, a:visited {
+            color: inherit;
+            
+        }
+        
+        img {
+            height: 80px;
+            width:  80px;
+            margin: 0 5px;
+            float:  left;
+        }
+
+        .heading {
+            font-size: 120%;
+            white-space: nowrap;
+            margin-bottom: 0.2em;
+        }
+
+        .blurb {
+            font-size: 80%;
+            height: 4em;
+            overflow: hidden;       
+        }
+        
+    }
 
 }
 

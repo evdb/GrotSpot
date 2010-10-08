@@ -1,0 +1,59 @@
+[% INCLUDE 'header.html', title => "Rate streets in ${area.name}" %]
+
+<div class="content">
+    
+    <h1>Edit advert [% advert.id %]</h1>
+
+    <hr>
+ 
+    <div id="demo_advert" class="advert-wrapper">
+        [% INCLUDE "advert/display_ours.html" %]
+    </div>
+
+    <div class="clear"></div> 
+    
+    <hr>
+
+    [% form.render %]
+
+</div>
+
+<script type="text/javascript" charset="utf-8">
+
+    $(function () {
+        var demo = $('#demo_advert');
+        var form = $('form');
+        
+        var heading   = form.find('input[name=heading]');
+        var blurb     = form.find('textarea[name=blurb]');
+        var url       = form.find('input[name=url]');
+        var image_url = form.find('input[name=image_url]');
+                
+        heading.change(function(input){
+            demo.find('.heading a').text( heading.val() );
+        });
+
+        blurb.change(function(input){
+            demo.find('.blurb').text( blurb.val() );
+        });
+
+        url.change(function(input){
+            demo.find('a').attr( 'href', url.val() );
+        });
+
+        image_url.change(function(input){
+            demo.find('img').attr('src', image_url.val() );
+        });
+        
+        // trigger all the changes to set the demo ad
+        heading.change();
+        blurb.change();
+        url.change();
+        image_url.change();
+        
+    });
+    
+</script>
+
+[% INCLUDE 'footer.html' %]
+

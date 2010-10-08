@@ -215,36 +215,36 @@ body {
 }
 #header .logo { float: left; }
 #header h1 { display: none; }
-#header .advert-wrapper {
-  height: 86px;
+.advert-wrapper {
   width: 468px;
+  height: 86px;
   float: right;
 }
-#header .advert-wrapper .advert-inner:hover {
+.advert-wrapper .advert-inner:hover {
   border-color: #b2b0ac;
   opacity: 1;
 }
-#header .advert-wrapper .advert-inner {
+.advert-wrapper .advert-inner {
   padding: 1px;
   border: 2px solid #e5e3df;
   height: 80px;
   opacity: 0.4;
   overflow: hidden;
 }
-#header .advert-wrapper .advert-inner a { color: inherit; }
-#header .advert-wrapper .advert-inner a:visited { color: inherit; }
-#header .advert-wrapper .advert-inner img {
+.advert-wrapper .advert-inner a { color: inherit; }
+.advert-wrapper .advert-inner a:visited { color: inherit; }
+.advert-wrapper .advert-inner img {
   height: 80px;
   width: 80px;
   margin: 0 5px;
   float: left;
 }
-#header .advert-wrapper .advert-inner .headline {
+.advert-wrapper .advert-inner .heading {
   font-size: 120%;
   white-space: nowrap;
   margin-bottom: 0.2em;
 }
-#header .advert-wrapper .advert-inner .blurb {
+.advert-wrapper .advert-inner .blurb {
   font-size: 80%;
   height: 4em;
   overflow: hidden;

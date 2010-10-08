@@ -8,7 +8,11 @@ sub auto : Private {
     my ( $self, $c ) = @_;
 
     # switch off analytics for this section of the site
-    $c->stash->{grotspot}{show_analytics} = 0;
+    my $grotspot = $c->stash->{grotspot};
+    $grotspot->{show_analytics} = 0;
+    $grotspot->{show_adverts}   = 0;
+    $grotspot->{show_feedback}  = 0;
+    $grotspot->{show_facebook}  = 0;
 
     # check that the user is allowed in here
     my $expected_secret = 'stinkypops';

@@ -5,6 +5,7 @@
 
 </div>
 
+[% IF grotspot.show_feedback %]
 <script type="text/javascript">
 var uservoiceOptions = {
   /* required */
@@ -29,8 +30,9 @@ function _loadUserVoice() {
 _loadSuper = window.onload;
 window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
 </script>
+[% END %]
 
-
+[% IF grotspot.show_facebook %]
 <div id="fb-root"></div>
 <script>
   window.fbAsyncInit = function() {
@@ -44,7 +46,7 @@ window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function
     document.getElementById('fb-root').appendChild(e);
   }());
 </script>
-
+[% END %]
 
     </body>
 </html>

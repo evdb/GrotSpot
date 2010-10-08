@@ -1,14 +1,5 @@
 <div class="advert-wrapper">
-
-    [% IF advert %]
-    <div class="advert-inner">
-        [% advert_url = '/advert/go/' _ advert.id %]
-        <a target="_new" href="[% advert_url %]"><img src="[% advert.image_url %]"></a>
-
-        <div class="headline"><a target="_new" href="[% advert_url %]">[% advert.heading %]</a></div>
-
-        <div class="blurb">[% advert.blurb | html %]</div>
-    </div>
+    [% IF grotspot.show_adverts && advert %]
+        [% INCLUDE "advert/display_ours.html" %]
     [% END %]
-
 </div>

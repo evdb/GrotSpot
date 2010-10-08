@@ -14,6 +14,11 @@ sub auto : Private {
     # push the version onto the stash
     $grotspot->{version} = $GrotSpot::VERSION;
 
+    # defaults for the site
+    $grotspot->{show_adverts}  = 1;
+    $grotspot->{show_feedback} = 1;
+    $grotspot->{show_facebook} = 1;
+
     # show analytics if on live site
     $grotspot->{show_analytics} =
       $c->req->uri->host eq 'www.grotspot.com' ? 1 : 0;
@@ -40,7 +45,6 @@ sub page_not_found : Private {
     $c->response->body('Page not found');
     $c->response->status(404);
 }
-
 
 sub end : ActionClass('RenderView') {
 }
