@@ -220,7 +220,6 @@ body {
   float: right;
 }
 #header .advert-wrapper .advert-inner:hover {
-  cursor: pointer;
   border-color: #b2b0ac;
   opacity: 1;
 }
@@ -231,6 +230,8 @@ body {
   opacity: 0.4;
   overflow: hidden;
 }
+#header .advert-wrapper .advert-inner a { color: inherit; }
+#header .advert-wrapper .advert-inner a:visited { color: inherit; }
 #header .advert-wrapper .advert-inner img {
   height: 80px;
   width: 80px;
@@ -240,8 +241,13 @@ body {
 #header .advert-wrapper .advert-inner .headline {
   font-size: 120%;
   white-space: nowrap;
+  margin-bottom: 0.2em;
 }
-#header .advert-wrapper .advert-inner .blurb { font-size: 80%; }
+#header .advert-wrapper .advert-inner .blurb {
+  font-size: 80%;
+  height: 4em;
+  overflow: hidden;
+}
 #rating_wrapper {
   display: inline;
   float: left;

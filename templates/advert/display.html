@@ -1,10 +1,10 @@
 <div class="advert-wrapper">
     <div class="advert-inner">
-        <img src="[% advert.image_url %]">
+        [% advert_url = '/advert/go/' _ advert.id %]
+        <a target="_new" href="[% advert_url %]"><img src="[% advert.image_url %]"></a>
 
-        <div class="headline">[% advert.heading %]</div>
+        <div class="headline"><a target="_new" href="[% advert_url %]">[% advert.heading %]</a></div>
 
         <div class="blurb">[% advert.blurb | html %]</div>
-
     </div>
 </div>

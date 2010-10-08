@@ -37,7 +37,6 @@ body {
         float: right;
         
         .advert-inner:hover {
-            cursor: pointer;
             border-color: @google_map_grey - #333;
             opacity: 1;
         }
@@ -49,7 +48,12 @@ body {
 
             opacity: 0.4;
             overflow: hidden;
-
+            
+            a, a:visited {
+                color: inherit;
+                
+            }
+            
             img {
                 height: 80px;
                 width:  80px;
@@ -60,10 +64,13 @@ body {
             .headline {
                 font-size: 120%;
                 white-space: nowrap;
+                margin-bottom: 0.2em;
             }
 
             .blurb {
-                font-size: 80%;            
+                font-size: 80%;
+                height: 4em;
+                overflow: hidden;       
             }
             
         }
