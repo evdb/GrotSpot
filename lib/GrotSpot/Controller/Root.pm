@@ -10,14 +10,10 @@ sub auto : Private {
     my ( $self, $c ) = @_;
     my $grotspot = {};
     %$grotspot = %{ $c->config->{grotspot} || {} };
+    $c->stash->{grotspot} = $grotspot;
 
     # push the version onto the stash
     $grotspot->{version} = $GrotSpot::VERSION;
-
-    # defaults for the site
-    $grotspot->{show_adverts}  = 1;
-    $grotspot->{show_feedback} = 1;
-    $grotspot->{show_facebook} = 1;
 
     # show analytics if on live site
     $grotspot->{show_analytics} =

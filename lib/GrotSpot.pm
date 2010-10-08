@@ -27,7 +27,16 @@ __PACKAGE__->config(
         min_lifetime => 3600 * 24 * 1,      # 1 day
     },
     default_view => 'Web',
-    grotspot     => { affiliate_codes => { amazon_uk => 'grot09-21', } },
+    grotspot     => {
+
+        show_adverts  => 1,
+        show_feedback => 1,
+        show_facebook => 1,
+
+        affiliate_codes => {                #
+            amazon_uk => 'grot09-21',
+        },
+    },
 
 );
 
