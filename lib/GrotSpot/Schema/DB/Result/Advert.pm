@@ -37,5 +37,10 @@ sub new {
     return $class->next::method($attrs);
 }
 
+sub record_view {
+    my $self = shift;
+    $self->update( { view_count => $self->view_count + 1 } );
+}
+
 1;
 

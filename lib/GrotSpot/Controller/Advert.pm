@@ -13,6 +13,8 @@ sub display : Local {
     my $advert =
       $adverts_rs->search( {}, { order_by => 'random()', rows => 1, } )->first;
 
+    $advert->record_view;
+
     # put it on the stash to display
     $c->stash->{advert} = $advert;
 }
