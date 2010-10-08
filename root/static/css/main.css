@@ -204,6 +204,7 @@ body {
 }
 #header {
   margin-top: 10px;
+  border-bottom: 1px solid #e5e3df;
   display: inline;
   float: left;
   position: relative;
@@ -247,6 +248,14 @@ body {
   font-size: 80%;
   height: 4em;
   overflow: hidden;
+}
+.content {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
 }
 #rating_wrapper {
   display: inline;
