@@ -1,5 +1,3 @@
-add version number to force css and js upgrades
-
 add adverts
 
 change 'in' to 'area'

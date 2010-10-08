@@ -1,12 +1,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
 <html>
     <head>
-        <link rel="stylesheet" href="/static/css/main.css" type="text/css" media="screen" title="no title" charset="utf-8">
+        [% grotspot_version = grotspot.version %]
+
+        <link rel="stylesheet" href="/static/css/main.css?v=[% grotspot_version %]" type="text/css" media="screen" title="no title" charset="utf-8">
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript" charset="utf-8"></script>
         <script src="/static/js/jquery.form.v2.43.js" type="text/javascript" charset="utf-8"></script>        
-        <script src="/static/js/main.js" type="text/javascript" charset="utf-8"></script>
+        <script src="/static/js/main.js?v=[% grotspot_version %]" type="text/javascript" charset="utf-8"></script>
         <title>[% title %] :: GrotSpot.com</title>
 
+        [% IF ! c.debug %]
         <script type="text/javascript">
 
           var _gaq = _gaq || [];
@@ -20,6 +23,7 @@
           })();
 
         </script>
+        [% END %]
     </head>
 
     <body>
