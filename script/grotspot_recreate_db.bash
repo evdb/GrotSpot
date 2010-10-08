@@ -2,4 +2,7 @@
 
 dropdb grotspot;
 createdb grotspot;
-psql grotspot < sql/*.sql
+
+for SQL in sql/*.sql; do
+    psql grotspot < $SQL;
+done

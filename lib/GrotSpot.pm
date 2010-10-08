@@ -27,6 +27,8 @@ __PACKAGE__->config(
         min_lifetime => 3600 * 24 * 1,      # 1 day
     },
     default_view => 'Web',
+    grotspot     => { affiliate_codes => { amazon_uk => 'grot09-21', } },
+
 );
 
 __PACKAGE__->setup();

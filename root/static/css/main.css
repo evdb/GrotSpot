@@ -203,6 +203,7 @@ body {
   width: 960px;
 }
 #header {
+  margin-top: 10px;
   display: inline;
   float: left;
   position: relative;
@@ -213,6 +214,34 @@ body {
 }
 #header .logo { float: left; }
 #header h1 { display: none; }
+#header .advert-wrapper {
+  height: 86px;
+  width: 468px;
+  float: right;
+}
+#header .advert-wrapper .advert-inner:hover {
+  cursor: pointer;
+  border-color: #b2b0ac;
+  opacity: 1;
+}
+#header .advert-wrapper .advert-inner {
+  padding: 1px;
+  border: 2px solid #e5e3df;
+  height: 80px;
+  opacity: 0.4;
+  overflow: hidden;
+}
+#header .advert-wrapper .advert-inner img {
+  height: 80px;
+  width: 80px;
+  margin: 0 5px;
+  float: left;
+}
+#header .advert-wrapper .advert-inner .headline {
+  font-size: 120%;
+  white-space: nowrap;
+}
+#header .advert-wrapper .advert-inner .blurb { font-size: 80%; }
 #rating_wrapper {
   display: inline;
   float: left;

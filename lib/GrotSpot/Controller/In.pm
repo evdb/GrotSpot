@@ -22,6 +22,8 @@ sub in : Path : Args(1) {
     my ( $lat, $lng ) = $area->get_random_lat_lng();
     $c->stash->{point} = { lat => $lat, lng => $lng };
 
+    # get an ad
+    $c->forward('/advert/display');
 }
 
 1;
