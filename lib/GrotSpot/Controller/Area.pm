@@ -38,4 +38,12 @@ sub rate : PathPart('') Chained('load_area') Args(0) {
     $c->forward('/advert/display');
 }
 
+sub map : PathPart('map') Chained('load_area') Args(0) {
+    my ( $self, $c ) = @_;
+    my $area = $c->stash->{area};
+
+    # get an ad
+    $c->forward('/advert/display');
+}
+
 1;

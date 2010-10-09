@@ -11,7 +11,26 @@ var GrotSpot = {
     panorama_search_radius_multiple : 4,
     panorama_search_radius_max      : 4000,
 
-    initialize_page: function ( lat, lng ) {
+    initialize_area_map_page: function ( sw_lat, sw_lng, ne_lat, ne_lng ) {
+
+        var sw_corner = new google.maps.LatLng( sw_lat, sw_lng );
+        var ne_corner = new google.maps.LatLng( ne_lat, ne_lng );
+        var bounds    = new google.maps.LatLngBounds( sw_corner, ne_corner );
+
+        var area_map = new google.maps.Map(
+            document.getElementById("area_big_map"),
+            {
+              center:           bounds.getCenter(),
+              zoom:             10,
+              mapTypeId:        google.maps.MapTypeId.ROADMAP
+            }
+        );
+
+        area_map.fitBounds( bounds );
+
+    },
+
+    initialize_area_rating_page: function ( lat, lng ) {
 
         var point = new google.maps.LatLng( lat, lng );
 

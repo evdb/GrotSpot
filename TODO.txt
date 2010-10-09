@@ -1,14 +1,14 @@
-check that when an email is added previous ratings are counted
+Load ratings onto a map
 
-add map showing recent ratings for each area
+menu to select city and then page in a city
+
+check that when an email is added previous ratings are counted
 
 create a grottiness -> niceness colour coding (brown to blue?)
 
 make the next box big enough to cover the original rating boxes
 
 smarts so that people can't choose their own locations to rate
-
-browse ratings on a map
 
 add more cities
 

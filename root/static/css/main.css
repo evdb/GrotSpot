@@ -215,6 +215,10 @@ body {
 }
 #header .logo { float: left; }
 #header h1 { display: none; }
+#facebook_like {
+  float: right;
+  width: 468px;
+}
 .advert-wrapper {
   width: 468px;
   height: 86px;
@@ -349,6 +353,16 @@ body {
 #info_pane .smallprint {
   font-size: 50%;
   color: #777777;
+}
+#area_big_map {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+  height: 600px;
+  background-color: #e5e3df;
 }
 #footer {
   display: inline;

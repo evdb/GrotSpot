@@ -1,0 +1,17 @@
+[% INCLUDE 'header.html', title => "Rate streets in ${area.name}" %]
+
+<div id="area_big_map"></div>
+
+<script type="text/javascript" charset="utf-8">
+    $(function () {
+        GrotSpot.initialize_area_map_page(
+            [% area.south_lat %],
+            [% area.west_lng  %],
+            [% area.north_lat %],
+            [% area.east_lng  %]
+        );
+    });
+</script>
+
+[% INCLUDE 'footer.html' %]
+
