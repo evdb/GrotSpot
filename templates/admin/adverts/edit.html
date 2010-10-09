@@ -5,6 +5,8 @@
     <h1>Edit advert [% advert.id %]</h1>
 
     <hr>
+    
+    Amazon ASIN: <input type="text" name="amazon_asin" />
  
     <div id="demo_advert" class="advert-wrapper">
         [% INCLUDE "advert/display_ours.html" %]
@@ -51,6 +53,20 @@
         url.change();
         image_url.change();
         
+        // Add the smarts to the asin input
+        
+        // http://www.amazon.co.uk/exec/obidos/ASIN/1741792266/grot09-21
+        // http://images.amazon.com/images/P/1741792266.01._SS80.jpg
+        
+        var amazon_asin = $('input[name=amazon_asin]');
+        amazon_asin.change(function () {
+            asin = amazon_asin.val();
+            url.val('http://www.amazon.co.uk/exec/obidos/ASIN/' + asin + '/grot09-21' );
+            image_url.val('http://images.amazon.com/images/P/' + asin + '.01._SS80.jpg' );
+            url.change();
+            image_url.change();
+        });
+
     });
     
 </script>
