@@ -1,4 +1,4 @@
-package GrotSpot::Controller::In;
+package GrotSpot::Controller::Area;
 
 use strict;
 use warnings;
@@ -9,7 +9,7 @@ sub index : Path : Args(0) {
     $c->res->redirect( $c->uri_for('/in/london') );
 }
 
-sub in : Path : Args(1) {
+sub rate : Path : Args(1) {
     my ( $self, $c, $area_code ) = @_;
 
     # check that the area code exists in the db

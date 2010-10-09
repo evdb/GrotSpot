@@ -1,5 +1,3 @@
-change 'in' to 'area'
-
 check that when an email is added previous ratings are counted
 
 add map showing recent ratings for each area

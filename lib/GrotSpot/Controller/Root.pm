@@ -28,7 +28,12 @@ sub auto : Private {
 
 sub index : Path : Args(0) {
     my ( $self, $c ) = @_;
-    $c->res->redirect( $c->uri_for('/in/london') );
+    $c->res->redirect( $c->uri_for('/area/london') );
+}
+
+sub in : Local {
+    my ( $self, $c, @extra ) = @_;
+    $c->res->redirect( $c->uri_for( '/area', @extra ) );
 }
 
 sub default : Path {
