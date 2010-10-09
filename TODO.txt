@@ -1,5 +1,3 @@
-add adverts
-
 change 'in' to 'area'
 
 check that when an email is added previous ratings are counted
