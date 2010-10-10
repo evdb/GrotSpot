@@ -83,6 +83,47 @@ sub store_email : Local {
     $c->stash->{json_data} = { email_saved => 1, };
 }
 
+sub find_locations : Local {
+    my ( $self, $c ) = @_;
+    my $req = $c->req;
+
+    my $args = {};
+    foreach my $key (qw( sw_lat sw_lng ne_lat ne_lng )) {
+        my $val = $req->param($key);
+        die "need $key" unless defined $val;
+        $args->{$key} = $val;
+    }
+
+    # FIXME - deal with dateline
+    my $locations = $c->model('DB::Location')->search(
+        {    #
+            lat => {
+                '>=' => $args->{sw_lat},    #
+                '<=' => $args->{ne_lat}
+            },
+            lng => {
+                '>=' => $args->{sw_lng},    #
+                '<=' => $args->{ne_lng}
+            },
+        },
+        { rows => 100, }
+    );
+
+    my @results = ();
+    while ( my $loc = $locations->next ) {
+        push @results,
+          {
+            lat     => $loc->lat,
+            lng     => $loc->lng,
+            score   => $loc->average_score,
+            ratings => $loc->ratings->count,
+          };
+    }
+
+    $c->stash->{json_data} = { locations => \@results };
+
+}
+
 sub end : Private {
     my ( $self, $c ) = @_;
     $c->detach('View::JSON') unless $c->res->body;

@@ -27,7 +27,8 @@ var GrotSpot = {
         );
 
         area_map.fitBounds( bounds );
-
+        
+        this.load_ratings_onto_map( area_map );
     },
 
     initialize_area_rating_page: function ( lat, lng ) {
@@ -233,7 +234,63 @@ var GrotSpot = {
             position: point, 
             map: overview_map
         });
-    }
+    },
+    
+    load_ratings_onto_map : function ( map ) {
+
+        var grotspot = this;
+        var bounds   = map.getBounds();
+
+        // check that the map has bounds
+        if ( bounds == undefined ) {
+            setTimeout(
+                function () {
+                    grotspot.load_ratings_onto_map( map );
+                },
+                100
+            );
+            return;
+        };
+        
+        // fetch the ratings to put on the map
+        $.ajax({
+            url : '/ajax/find_locations',
+            type: 'POST',
+            dataType: 'json',
+            data: {
+                sw_lat : bounds.getSouthWest().lat(),
+                sw_lng : bounds.getSouthWest().lng(),
+                ne_lat : bounds.getNorthEast().lat(),
+                ne_lng : bounds.getNorthEast().lng()          
+            },
+            success: function(data, textStatus, xhr) {
+                grotspot.place_locations_on_map(
+                    map,
+                    data.locations
+                );
+            },
+            error: function(xhr, textStatus, errorThrown) {
+                alert('failure: ' + textStatus );
+            }
+        });
+        
+    },
+    
+    place_locations_on_map : function ( map, locations ) {
+        
+        $.each(
+            locations,
+            function (index, loc) {
+                var point  = new google.maps.LatLng( loc.lat, loc.lng );    
+                var marker = new google.maps.Marker({
+                    position: point, 
+                    map: map
+                });
+            }
+        );
+        
+        
+    },
     
 };
 
