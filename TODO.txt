@@ -1,10 +1,14 @@
 Load ratings onto a map
+  create a grottiness -> niceness colour coding (brown to blue?)
 
 menu to select city and then page in a city
 
 check that when an email is added previous ratings are counted
 
-create a grottiness -> niceness colour coding (brown to blue?)
+create analytics events for ratings and email signups
+
+social links
+  twitter: http://twitter.com/goodies/tweetbutton
 
 make the next box big enough to cover the original rating boxes
 
@@ -19,3 +23,11 @@ expand the panorama and float the rating buttons over it?
 add page explaining what future discounts are
 
 allow user to log out
+
+allow users to define their own areas
+  hyper local bloggers might like this
+
+embeddable maps for other sites
+
+share rating information
+
