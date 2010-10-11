@@ -24,34 +24,4 @@ create table advert_clicks (
 
 );
 
-
--- FIXME - just for dev
-
-insert into adverts( created, enabled, heading, blurb, price, url, image_url, view_count, click_count )
-    values (
-        now(),
-        true,
-        'This is the heading',
-        'This is the blurb. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        12.34,
-        'http://www.google.co.uk/',
-        'http://cindy.local:3000/static/icons/grotspot_logo.png',
-        0,
-        0
-        );
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 commit;
