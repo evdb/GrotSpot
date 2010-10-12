@@ -281,10 +281,17 @@ var GrotSpot = {
         $.each(
             locations,
             function (index, loc) {
+
+                var int_score = Math.round( loc.score );
+
                 var point  = new google.maps.LatLng( loc.lat, loc.lng );    
+
                 var marker = new google.maps.Marker({
                     position: point, 
-                    map: map
+                    map: map,
+                    title: loc.score + ' ('+ loc.ratings +' ratings)',
+                    icon:   '/static/icons/markers/dot-' + int_score + '.png',
+                    shadow: '/static/icons/markers/dot-shadow.png'
                 });
             }
         );

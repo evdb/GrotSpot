@@ -1,5 +1,4 @@
-Load ratings onto a map
-  create a grottiness -> niceness colour coding (brown to blue?)
+menu item to switch to maps
 
 menu to select city and then page in a city
 
