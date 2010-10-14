@@ -106,7 +106,7 @@ sub find_locations : Local {
                 '<=' => $args->{ne_lng}
             },
         },
-        { rows => 100, }
+        { rows => 300, }
     );
 
     my @results = ();

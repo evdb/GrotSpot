@@ -13,10 +13,12 @@ sub display : Local {
     my $advert =
       $adverts_rs->search( {}, { order_by => 'random()', rows => 1, } )->first;
 
-    $advert->record_view;
+    if ($advert) {
+        $advert->record_view;
 
-    # put it on the stash to display
-    $c->stash->{advert} = $advert;
+        # put it on the stash to display
+        $c->stash->{advert} = $advert;
+    }
 }
 
 sub go : Local {
