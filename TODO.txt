@@ -1,3 +1,5 @@
+make marker origin in middle of marker
+
 menu item to switch to maps
 
 menu to select city and then page in a city
@@ -8,6 +10,8 @@ create analytics events for ratings and email signups
 
 social links
   twitter: http://twitter.com/goodies/tweetbutton
+  http://www.boingboing.net/2010/10/25/howto-use-google-adw.html
+
 
 make the next box big enough to cover the original rating boxes
 
