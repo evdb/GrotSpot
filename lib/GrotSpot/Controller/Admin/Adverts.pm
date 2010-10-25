@@ -25,7 +25,9 @@ sub edit : Local {
     $c->stash( form => $form );
 
     # process the form and return if there were errors
-    return if !$form->process( params => $c->req->params );
+    my $params = $c->req->params;
+    delete $params->{id} unless $advert_id;
+    return if !$form->process( params => $params );
 
     $c->res->redirect( $c->uri_for('') );
 }
