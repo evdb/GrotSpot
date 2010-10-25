@@ -215,14 +215,6 @@ body {
 }
 #header .logo { float: left; }
 #header h1 { display: none; }
-#social_buttons {
-  text-align: right;
-  float: right;
-  width: 468px;
-  height: 24px;
-  overflow: hidden;
-}
-#social_buttons li { display: inline; }
 .advert-wrapper {
   width: 468px;
   height: 86px;
@@ -375,6 +367,7 @@ body {
   margin-left: 10px;
   margin-right: 10px;
   width: 940px;
+  float: right;
   text-align: right;
   border-top: 1px solid #dddddd;
   margin-top: 20px;
@@ -382,4 +375,10 @@ body {
 #footer li {
   display: inline;
   padding-left: 0.6em;
+}
+#footer li.social_buttons {
+  float: left;
+  padding-top: 0.6em;
+  height: 60px;
+  width: 56px;
 }

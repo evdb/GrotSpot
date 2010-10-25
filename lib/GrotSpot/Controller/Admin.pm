@@ -12,7 +12,7 @@ sub auto : Private {
     $grotspot->{show_analytics} = 0;
     $grotspot->{show_adverts}   = 0;
     $grotspot->{show_feedback}  = 0;
-    $grotspot->{show_facebook}  = 0;
+    $grotspot->{show_social_buttons}  = 0;
 
     # check that the user is allowed in here
     my $expected_secret = 'stinkypops';

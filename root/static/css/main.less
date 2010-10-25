@@ -33,17 +33,6 @@ body {
     }    
 }
 
-#social_buttons {
-    text-align: right;
-    float: right;
-    width: 468px;
-    height: 24px;
-    overflow: hidden;
-
-    li {
-        display: inline;    
-    }
-}
 
 .advert-wrapper {
     /* google ads 468x60, 468x15*/
@@ -196,6 +185,7 @@ body {
 
 #footer {
     .grid_12;
+    float: right;
     text-align: right;
     border-top: 1px solid #ddd;
     margin-top: @gutter;
@@ -203,5 +193,12 @@ body {
     li {
         display: inline;
         padding-left: 0.6em;
+    }
+
+    li.social_buttons {
+        float: left;
+        padding-top: 0.6em;
+        height: 60px;
+        width:  56px;
     }
 }

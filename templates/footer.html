@@ -1,7 +1,22 @@
 
+
 <ul id="footer">
+
+    [% IF grotspot.show_social_buttons %]
+        <li class="social_buttons">            
+            <iframe src="http://www.facebook.com/plugins/like.php?&amp;layout=box_count" style="height: 60px; width: 60px"></iframe>
+        </li>
+        <li class="social_buttons">
+            <a href="http://twitter.com/share" class="twitter-share-button" data-text="GrotSpot - rate streets to help find the best and the worst" data-count="vertical" data-via="grotspot">&nbsp;</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+        </li>
+        <li class="social_buttons">
+            <script src="http://www.stumbleupon.com/hostedbadge.php?s=5"></script>
+        </li>
+    [% END %]
+
     <li>&copy; 2010 GrotSpot</li>
 </ul>
+
 
 </div>
 
@@ -29,22 +44,6 @@ function _loadUserVoice() {
 }
 _loadSuper = window.onload;
 window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
-</script>
-[% END %]
-
-[% IF grotspot.show_facebook %]
-<div id="fb-root"></div>
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({appId: 'your app id', status: true, cookie: true,
-             xfbml: true});
-  };
-  (function() {
-    var e = document.createElement('script'); e.async = true;
-    e.src = document.location.protocol +
-      '//connect.facebook.net/en_US/all.js';
-    document.getElementById('fb-root').appendChild(e);
-  }());
 </script>
 [% END %]
 

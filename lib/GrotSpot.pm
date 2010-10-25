@@ -31,7 +31,7 @@ __PACKAGE__->config(
 
         show_adverts  => 1,
         show_feedback => 1,
-        show_facebook => 1,
+        show_social_buttons => 1,
 
         affiliate_codes => {                #
             amazon_uk => 'grot09-21',
